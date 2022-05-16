@@ -90,7 +90,7 @@ def rotateframe(frame, w, h):
 
     return out_frame
 
-# Resize all images, save
+# Rotate all images, save
 for img in imglist:
     frame = cv2.imread(img)
 
@@ -100,7 +100,7 @@ for img in imglist:
     name = os.path.basename(img).split(".")[0] + '_rot_' + str_angle + '.png'  # String to save image as
     cv2.imwrite(name, out_frame)
 
-# Resize all videos, save
+# Rotate all videos, save
 for video in videolist:
     capture = cv2.VideoCapture(video)
 
@@ -115,7 +115,7 @@ for video in videolist:
     fourcc = cv2.VideoWriter_fourcc(*'XVID')
     out = cv2.VideoWriter(name, fourcc, fps, (w, h))
 
-    # Resize each frame
+    # Rotate each frame
     while True:
         ret, frame = capture.read()
         if ret == True:
