@@ -5,6 +5,11 @@ These scripts have been designed specifically for use with iCLOTS software, a La
 Most methods rely heavily on OpenCV image processing library. Each script has information about inputs, parameters, and outputs and a "tips" section within the module docstrings. Briefly, users select a folder of .png, .jpg., .tif, and/or .avi files for modification. Users edit indicated parameters, some image processing step is applied, and all edited files are returned in a new directory within the original.
 
 ## Scripts included in repository
+- crop_video.py: shorten video to a specified start and end frame
+- edit_contrast.py: edit contrast of a file using gain and bias parameters
+- imgseq_to_video.py: convert a sequential list of images to a single video
+- video_to_imgseq.py: convert a single video to a sequential list of images
+- normalize_intrange.py: normalize a file to [0, 255] pixel range
 - resize.py: increase or decrease the resolution of a file
 - rotate.py: rotate a file, useful for applications relying on parallel flow (aspect ratio is preserved)
 
