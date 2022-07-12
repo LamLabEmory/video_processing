@@ -43,7 +43,7 @@ dirpath = filedialog.askdirectory()
 # Create a directory for saved results including time at which operation was performed
 now = datetime.datetime.now()
 # Create strings to indicate operations performed
-output_folder = dirpath + '/Normalized, ' + now.strftime("%m:%d:%Y, %H.%M.%S")
+output_folder = os.path.join(dirpath, 'Normalized, ' + now.strftime("%m_%d_%Y, %H_%M_%S"))
 os.mkdir(output_folder)
 os.chdir(output_folder)
 
@@ -59,8 +59,9 @@ def normalize(image):
     h, w, l = image.shape  # Dimensions of frame
 
     for i in range(l):  # For each layer
+        if l != 1:
         # Normalize
-        image[l] = (image[l] - np.amin(image))/(np.amax(image) - np.amin(image)) * 255
+            image[l] = (image[l] - np.amin(image))/(np.amax(image) - np.amin(image)) * 255
 
     out_image = image
 
